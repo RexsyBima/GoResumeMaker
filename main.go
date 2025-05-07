@@ -40,6 +40,11 @@ func main() {
       line-height: 1.4;
       margin-bottom: 1em;
     }
+.centered-text {
+	  text-align: center;
+	  font-weight: bold;
+	  font-size: 24px;
+	}
   </style>
 </head>
 <body>
