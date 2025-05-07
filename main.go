@@ -11,7 +11,7 @@ import (
 )
 
 func main() {
-	resumeFile := "RESUME.md"
+	resumeFile := "RESUMEtest.md"
 	data, err := os.ReadFile(resumeFile)
 	if err != nil {
 		log.Fatalf("Error reading %s: %v", resumeFile, err)
