@@ -1,0 +1,21 @@
+ About the job
+This job is sourced from a job board.
+
+Job Descriptions:
+
+     Build website dashboards and risk management monitoring systems.
+     Conduct R&D for tooling automation.
+     Manage and maintain VPS servers.
+     Monitor running automation tools on VPS.
+
+Requirements
+
+Job Requirements:
+
+     Fresh graduates are welcome to apply, but experience in a related field is preferred.
+     Proficient in Python at an advanced level.
+     Experience in building websites/systems with Python, either through work or projects.
+     Basic programming skills in C++ is a bonus.
+     Knowledge and/or experience in the forex world is a bonus.
+     Willing to work onsite in Yogyakarta.
+

@@ -1,4 +1,5 @@
 import os
+from markitdown import MarkItDown
 import json
 from unittest import TestCase
 from dataclasses import dataclass
@@ -9,6 +10,7 @@ from pydantic_ai import Agent, RunContext
 from pydantic_ai.models.openai import OpenAIModel
 from pydantic_ai.providers.deepseek import DeepSeekProvider
 from pydantic_core import from_json
+from utils import read_jsonv2, read_text
 
 
 @dataclass
@@ -34,6 +36,43 @@ class Identity(BaseModel):
 
 
 load_dotenv()
+
+
+class TestMain(TestCase):
+    def setUp(self) -> None:
+        load_dotenv()
+        return super().setUp()
+
+    def test_main(self) -> None:
+        from utils import read_json
+        from utils import init_agent
+
+        job_desc = """
+About the job
+
+Junior Backend Developer (Python)
+
+
+Requirements :
+
+    Bachelor's Degree in Computer Science, Information Technology, or a related field.
+    At least 1 years of experience in backend development, with strong experience in Python.
+    Experience with django Rest Framework sama flask/JWT token
+    Strong problem-solving skills and the ability to optimize code for performance and scalability.
+    Excellent communication skills to effectively collaborate with team members and stakeholders.
+    Ability to work independently and proactively in a fast-paced environment.
+    Strong attention to detail, analytical skills, and problem-solving abilities.
+    Proven experience working effectively in collaborative team environments.
+    Handle project in sector financial use Django Rest Framework sama flask/JWT token.
+    Ready on site yogyakarta
+        """
+
+        identity = read_json()
+        resume = read_text("RESUME.md")
+        agent = init_agent(resume)
+        result = agent.run_sync(job_desc, deps=identity)
+        with open("RESUMEtest.md", "w") as f:
+            f.write(result.output.markdown)
 
 
 class TestAgent(TestCase):
@@ -165,3 +204,17 @@ class TestJson(TestCase):
             print(type(data))
             profile = Identity.model_validate(data)
             print(profile)
+
+    def test_read_jsonv2(self):
+        data = read_jsonv2()
+        self.assertIsInstance(data, dict)
+        print(str(data))
+        for k in data:
+            print(k, data[k])
+
+
+class TestMarkItDown(TestCase):
+    def test_markitdown(self):
+        md = MarkItDown(enable_plugins=True)
+        result = md.convert("resumetest.pdf")
+        print(result)

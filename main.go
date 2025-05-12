@@ -11,7 +11,7 @@ import (
 )
 
 func main() {
-	resumeFile := "RESUMEtest.md"
+	resumeFile := "RESUMEOUTPUT.md"
 	data, err := os.ReadFile(resumeFile)
 	if err != nil {
 		log.Fatalf("Error reading %s: %v", resumeFile, err)
@@ -40,6 +40,13 @@ func main() {
       line-height: 1.4;
       margin-bottom: 1em;
     }
+
+.centered-text-website {
+	  text-align: center;
+	font-size: 12px;
+	background-color: #FFF;
+	color: #000;
+	}
 .centered-text {
 	  text-align: center;
 	  font-weight: bold;
